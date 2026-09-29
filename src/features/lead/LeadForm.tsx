@@ -38,8 +38,6 @@ export function LeadForm() {
       [name]: value,
     }));
 
-    // If user changes the form after successful submission,
-    // allow them to submit again.
     if (isSubmitted) {
       setIsSubmitted(false);
       setSubmittedValues(null);
@@ -58,18 +56,14 @@ export function LeadForm() {
     );
   };
 
-  // -----------------------------
-  // Validate on blur
-  // -----------------------------
+  
 
   const handleBlur = (name: string) => {
-    // Mark only this field as touched
     setTouched((prev) => ({
       ...prev,
       [name]: true,
     }));
 
-    // Run the central validation function
     const nextErrors = validateLeadForm(
       leadFormConfig,
       values,
@@ -78,16 +72,12 @@ export function LeadForm() {
     setErrors(nextErrors);
   };
 
-  // -----------------------------
-  // Submit
-  // -----------------------------
 
   const handleSubmit = (
     event: FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
 
-    // Validate complete form
     const nextErrors = validateLeadForm(
       leadFormConfig,
       values,
@@ -95,7 +85,6 @@ export function LeadForm() {
 
     setErrors(nextErrors);
 
-    // Show errors for every visible field
     const allTouched: Record<string, boolean> = {};
 
     leadFormConfig.forEach((field) => {
@@ -114,9 +103,6 @@ export function LeadForm() {
       return;
     }
 
-    // -----------------------------
-    // Successful submission
-    // -----------------------------
 
     console.log("Submitted values:", values);
 
