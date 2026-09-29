@@ -1,0 +1,26 @@
+.select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 44px;
+
+  box-sizing: border-box;
+
+  padding: var(--space-3) var(--space-4);
+
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+
+  background: var(--color-background);
+  color: var(--color-text);
+
+  font-size: var(--font-size-md);
+  font-family: inherit;
+
+  outline: none;
+}
+
+.select:focus {
+  border-color: var(--color-primary);
+}
